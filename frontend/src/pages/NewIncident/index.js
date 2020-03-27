@@ -8,7 +8,7 @@ import './styles.css';
 import logoImg from '../../assets/logo.svg';
 
 export default function NewIncident(){
-    const [tittle, setTittle] = useState('');
+    const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [value, setValue] = useState('');
 
@@ -19,7 +19,7 @@ export default function NewIncident(){
     async function handleNewIncident(e){
         e.preventDefault();
 
-        const data = {tittle, description, value};
+        const data = {title, description, value};
 
         try{
             await api.post('incidents', data, { headers: {Authorization: ongId,}});
@@ -45,7 +45,7 @@ export default function NewIncident(){
                     </Link>
                 </section>
                 <form onSubmit={handleNewIncident}>
-                    <input placeholder="Título do caso" value={tittle} onChange={e => setTittle(e.target.value)} />
+                    <input placeholder="Título do caso" value={title} onChange={e => setTitle(e.target.value)} />
                     <textarea placeholder="Descrição" value={description} onChange={e => setDescription(e.target.value)} /> 
                     <input placeholder="Valor em reais" value={value} onChange={e => setValue(e.target.value)} />
 
